@@ -9,8 +9,8 @@ from django.urls import reverse
 def cadastro(request):
     if request.method == "POST":
         context = {'has_error': False, 'data': request.POST}
-        username = request.POST.get('username')
         email = request.POST.get('email')
+        username = request.POST.get('username')
         password = request.POST.get('password')
 
         if len(password)<6:
@@ -39,9 +39,6 @@ def cadastro(request):
             context['has_error'] = True
             return render(request, 'autenticacao/cadastro-usuario.html', context, status=409)
 
-        if context['has_error']:
-            return render(request, 'autenticacao/cadastro-usuario.html', context)
-
         user=User.objects.create_user(username=username, email=email)
         user.set_password(password)
         user.save()
@@ -65,11 +62,11 @@ def login_usuario(request):
         
         login(request, user)
         messages.add_message(request, messages.SUCCESS, f'Bem-vindo(a), {user.username}')
-        return redirect(reverse('index'))
+        return redirect(reverse('main'))
 
     return render(request, 'autenticacao/login.html')
 
 def logout_usuario(request):
     logout(request)
     messages.add_message(request, messages.SUCCESS, 'Você saiu da sua conta')
-    return redirect(reverse('index'))
+    return redirect(reverse('main'))

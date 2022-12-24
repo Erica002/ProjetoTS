@@ -11,6 +11,10 @@ class TestBase(TestCase):
         user.save()
         return user
 
+    def login(self):
+        user_logged = self.client.login(username='teste2', password='senha2')
+        return user_logged
+
     def tearDown(self) -> None:
         print('\nTeste Encerrado!')
         return super().tearDown()
