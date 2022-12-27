@@ -3,7 +3,12 @@ from autenticacao.models import User
 
 class TestBase(TestCase):
     def setUp(self) -> None:
+        print('\nTeste Iniciado!')
         return super().setUp()
+
+    def tearDown(self) -> None:
+        print('\nTeste Encerrado!')
+        return super().tearDown()
 
     def create_test_user(self):
         user = User.objects.create_user(username='teste2', email='teste2@gmail.com')
@@ -14,7 +19,3 @@ class TestBase(TestCase):
     def login(self):
         user_logged = self.client.login(username='teste2', password='senha2')
         return user_logged
-
-    def tearDown(self) -> None:
-        print('\nTeste Encerrado!')
-        return super().tearDown()

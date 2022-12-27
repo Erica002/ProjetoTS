@@ -7,7 +7,6 @@ urlpatterns = [
     # path("add-gasto", views.add_gasto, name="add-gasto"),
     path("add-gasto", views.CreateGastoView.as_view(), name="add-gasto"),
     path("add-categoria", views.add_categoria, name="add-categoria"),
-    path("update-gasto/<int:id>", views.gasto_update, name="update-gasto"),
     path("delete-gasto/<int:id>", views.gasto_delete, name="delete-gasto"),
     path("list-categoria", views.list_categoria, name="list-categoria"),
     path("update-categoria/<int:id>", views.categoria_update, name="update-categoria"),

@@ -70,34 +70,6 @@ def add_categoria(request):
     form = CategoriaForm()# pragma: no cover 
     return render(request, "gastos/add-categoria.html", {"form": form})# pragma: no cover 
 
-
-@login_required(login_url="/autenticacao/login")
-def gasto_update(request, id):
-    gasto = Despesa.objects.get(id=id)
-    categorias = Categoria.objects.filter(user=request.user)
-    context = {
-        "gasto": gasto,
-        "valor": gasto,
-        "categorias": categorias,
-    }
-    if request.method == "GET":
-        return render(request, "gastos/update-gasto.html", context)
-    if request.method == "POST":
-        detalhes = request.POST["detalhes"]
-        valor_despesa = request.POST["valor_despesa"]
-        categoria = request.POST["categoria"]
-        data = request.POST["data"]
-
-        gasto.user = request.user
-        gasto.detalhes = detalhes
-        gasto.valor_despesa = valor_despesa
-        gasto.categoria = Categoria.objects.get(nome=categoria)
-        gasto.data = data
-        gasto.save()
-
-        return redirect("main")
-
-
 @login_required(login_url="/autenticacao/login")
 def gasto_delete(request, id):
     gasto = Despesa.objects.get(id=id)
