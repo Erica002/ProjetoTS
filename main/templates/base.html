@@ -50,38 +50,30 @@
                                     </a>
                                 </nav>
                             </div -->
-                            <a class="nav-link" href="{% url 'list-ganhos' %}" style="color: white;">
+                            <a class="nav-link" href="{% url 'list-ganhos' %}" id="list-ganhos" style="color: white;">
                                 <div class="sb-nav-link-icon" style="color: white;"><i class="fa-solid fa-brazilian-real-sign"></i></div>
                                     Minha Receita
                             </a>
-                            <a class="nav-link collapsed" style="color: white;" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon" style="color: white;"><i class="fa-solid fa-receipt" style="color: white;"></i></div>
-                                    Minhas Despesas
-                                <div class="sb-sidenav-collapse-arrow" style="color: white;"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion" style="color: white;">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="{% url 'main' %}" style="color: white;">
-                                        <div class="sb-nav-link-icon" style="color: white;"><i class="fa-solid fa-money-bill-transfer"></i></div>
-                                        Gerenciar despesas
-                                    </a>
-                                    <a class="nav-link" href="{% url 'grafico-mensal' %}" style="color: white;">
-                                        <div class="sb-nav-link-icon" style="color: white;"><i class="fa-solid fa-chart-pie"></i></div>
-                                        Despesas por mês
-                                    </a>
-                                    <a class="nav-link" href="{% url 'grafico-anual' %}" style="color: white;">
-                                        <div class="sb-nav-link-icon" style="color: white;"><i class="fa-solid fa-chart-pie"></i></div>
-                                        Despesas por ano
-                                    </a>
-                                    <a class="nav-link" href="{% url 'list-categoria' %}" style="color: white;">
-                                        <div class="sb-nav-link-icon" style="color: white;"><i class="fa-solid fa-plus-minus"></i></div>
-                                        Gerenciar Categorias
-                                    </a>
-                                </nav>
-                            </div>
-                            <a class="nav-link" href="{% url 'list-wish' %}" style="color: white;">
+                            <a class="nav-link" href="{% url 'list-wish' %}" id="list-wish" style="color: white;">
                                 <div class="sb-nav-link-icon" style="color: white;"><i class="fa-solid fa-clipboard-list"></i></div>
                                     Wishlist
+                            </a>
+                            <div class="sb-sidenav-menu-heading" style="color: white;">Minhas Despesas</div>
+                            <a class="nav-link" href="{% url 'main' %}" id="main" style="color: white;">
+                                <div class="sb-nav-link-icon" style="color: white;"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                                Gerenciar despesas
+                            </a>
+                            <a class="nav-link" href="{% url 'grafico-mensal' %}" id="grafico-mensal" style="color: white;">
+                                <div class="sb-nav-link-icon" style="color: white;"><i class="fa-solid fa-chart-pie"></i></div>
+                                Despesas por mês
+                            </a>
+                            <a class="nav-link" href="{% url 'grafico-anual' %}" id="grafico-anual" style="color: white;">
+                                <div class="sb-nav-link-icon" style="color: white;"><i class="fa-solid fa-chart-pie"></i></div>
+                                Despesas por ano
+                            </a>
+                            <a class="nav-link" href="{% url 'list-categoria' %}" id="list-categoria" style="color: white;">
+                                <div class="sb-nav-link-icon" style="color: white;"><i class="fa-solid fa-plus-minus"></i></div>
+                                Gerenciar Categorias
                             </a>
                         </div>
                         <form class="d-flex" action="{% url 'logout' %}" method="POST">
